@@ -1,0 +1,39 @@
+name: Download and Process Rules
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 0 * * *"
+  push:
+    branches:
+permissions:
+  contents: write
+jobs:
+  download-and-process:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@main
+      - name: Create directories and download files
+        run: |
+          # 创建目录
+          mkdir -p RULE
+          mkdir -p RULE/Action
+          # 下载 中国ip 到 RULE 文件夹
+          curl -o RULE/china_ip.txt https://ruleset.skk.moe/Clash/ip/china_ip.txt
+          # 下载 telegramip 到 RULE 文件夹
+          curl -o RULE/telegramip.txt https://core.telegram.org/resources/cidr.txt
+      - name: Process china
+        run: |
+          # 处理 中国ip
+          sed '/#/d; /^$/d; s/^/IP-CIDR,/' RULE/china_ip.txt > RULE/Action/china_ip.txt
+      - name: Process telegramip
+        run: |
+          # 处理 telegramip
+          sed '/:/d; /^$/d; s/^/IP-CIDR,/' RULE/telegramip.txt > RULE/Action/telegramip.txt
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "deceit-bucket-shy@duck.com"
+          git config --local user.name "Nine_Action_bot"
+          git add RULE/Action/china_ip.txt RULE/Action/telegramip.txt
+          git diff --staged --quiet || git commit -m "自动更新时间为： $(date -d '8 hours' +'%Y年%m月%d日 %H:%M')"
+          git push
