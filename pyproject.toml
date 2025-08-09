@@ -4,12 +4,19 @@ version = "2025.08.09.132420"
 description = "ai完成了一切"
 readme = "README.md"
 requires-python = ">=3.11"
-dependencies = [ "pyperclip>=1.9.0", "requests>=2.32.4", "toml>=0.10.2",]
+dependencies = [
+ "beautifulsoup4>=4.13.4",
+ "cloudscraper>=1.2.71",
+ "pyperclip>=1.9.0",
+ "requests>=2.32.4",
+ "toml>=0.10.2",
+]
 
 [project.scripts]
 news_60s = "news_60s.news_60s:main"
 saoip = "saoip.saoip:main"
 get_uuid = "get_uuid.get_uuid:generate_uuid"
+wenku8 = "wenku8.wenku8:download_file"
 
 [tool.uv.build-backend]
 module-root = "python"
