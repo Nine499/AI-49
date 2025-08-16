@@ -1,0 +1,40 @@
+name: 下载并处理 mihomo 规则
+on: # 触发条件
+  workflow_dispatch: # 手动触发
+  push: # 推送触发
+  schedule: # 定时触发
+    - cron: "1 1 * * *"
+permissions:
+  contents: write # 授予写入仓库内容的权限
+jobs:
+  one:
+    runs-on: ubuntu-latest # 使用最新 Ubuntu 系统运行
+    steps: # 步骤
+      - name: 检出代码仓库
+        uses: actions/checkout@main
+      - name: 创建目录
+        run: |
+          mkdir -p mihomo/tmp
+      - name: 下载规则
+        run: |
+          curl -fsSL -o mihomo/tmp/cnipv4.txt https://ruleset.skk.moe/Clash/ip/china_ip.txt
+          curl -fsSL -o mihomo/tmp/cnipv6.txt https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt
+          curl -fsSL -o mihomo/tmp/tgip.txt https://core.telegram.org/resources/cidr.txt
+          curl -fsSL -o mihomo/tmp/AWAvenue.txt https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml
+      - name: 处理规则
+        run: |
+          # 处理 cn.txt
+          cat mihomo/tmp/cnipv4.txt mihomo/tmp/cnipv6.txt | grep -v '^#' | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/cn.txt
+          # 处理 tgip.txt
+          grep -v '^#' mihomo/tmp/tgip.txt | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/tgip.txt
+          # 处理 AWAvenue.txt
+          grep -v -E '(#|payload|^$)' mihomo/tmp/AWAvenue.txt | sed 's/  - DOMAIN/DOMAIN/g' > mihomo/AWAvenue.txt
+      - name: 提交并推送更新
+        run: |
+          git config --local user.email "deceit-bucket-shy@duck.com"
+          git config --local user.name "Nine_Action_bot"
+          git add mihomo/cn.txt mihomo/tgip.txt mihomo/AWAvenue.txt
+          if ! git diff --cached --quiet; then
+            git commit -m "🤖 自动更新规则 $(date '+%Y-%m-%d %H:%M:%S')"
+            git push
+          fi
