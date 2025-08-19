@@ -1,0 +1,51 @@
+name: 下载并处理 mihomo 规则
+on: # 触发条件
+  workflow_dispatch: # 手动触发
+  schedule: # 定时触发
+    - cron: "15 15 * * *"
+permissions:
+  contents: write # 授予写入仓库内容的权限
+jobs:
+  one:
+    runs-on: ubuntu-latest # 使用最新 Ubuntu 系统运行
+    steps: # 步骤
+      - name: 检出代码仓库
+        uses: actions/checkout@main
+      - name: 创建目录
+        run: |
+          mkdir -p mihomo/tmp
+      - name: 下载规则
+        run: |
+          curl -fsSL -o mihomo/tmp/cnipv4.txt https://ruleset.skk.moe/Clash/ip/china_ip.txt
+          curl -fsSL -o mihomo/tmp/cnipv6.txt https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt
+          curl -fsSL -o mihomo/tmp/tgip.txt https://core.telegram.org/resources/cidr.txt
+          curl -fsSL -o mihomo/tmp/AWAvenue.txt https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml
+          curl -fsSL -o mihomo/tmp/cdn.txt https://ruleset.skk.moe/Clash/domainset/cdn.txt
+          curl -fsSL -o mihomo/tmp/cdn2.txt https://ruleset.skk.moe/Clash/non_ip/cdn.txt
+      - name: 处理规则
+        run: |
+          # 处理 mihomo/tmp/cnipv4.txt 和 mihomo/tmp/cnipv6.txt
+          # 要求：删除包含#的行，删除空行，在每行开头添加IP-CIDR,，合并到 mihomo/cn.txt
+          cat mihomo/tmp/cnipv4.txt mihomo/tmp/cnipv6.txt | grep -v '#' | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/cn.txt
+          # 处理 mihomo/tmp/tgip.txt
+          # 要求：删除包含#的行，删除空行，在每行开头添加IP-CIDR,，输出为 mihomo/tgip.txt
+          grep -v '#' mihomo/tmp/tgip.txt | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/tgip.txt
+          # 处理 mihomo/tmp/AWAvenue.txt
+          # 要求：删除包含#的行，删除包含payload的行，删除空行，将`  - DOMAIN`替换为`DOMAIN`，输出为 mihomo/AWAvenue.txt
+          grep -v '#' mihomo/tmp/AWAvenue.txt | grep -v 'payload' | grep -v '^$' | sed 's/  - DOMAIN/DOMAIN/' > mihomo/AWAvenue.txt
+          # 处理 mihomo/tmp/cdn.txt
+          # 要求：删除包含#的行，如果开头有+.则删除+.，删除空行，在每行开头添加DOMAIN-SUFFIX,，输出为 mihomo/cdn.txt
+          grep -v '#' mihomo/tmp/cdn.txt | sed 's/^+\.*//' | grep -v '^$' | sed 's/^/DOMAIN-SUFFIX,/' > mihomo/cdn.txt
+          # 处理 mihomo/tmp/cdn2.txt
+          # 要求：删除包含#的行，删除空行，输出为 mihomo/cdn2.txt
+          grep -v '#' mihomo/tmp/cdn2.txt | grep -v '^$' > mihomo/cdn2.txt
+          echo "所有文件处理完成。"
+      - name: 提交并推送更新
+        run: |
+          git config --local user.email "deceit-bucket-shy@duck.com"
+          git config --local user.name "Nine_Action_bot"
+          find mihomo -maxdepth 1 -name "*.txt" -exec git add {} +
+          if ! git diff --cached --quiet; then
+            git commit -m "🤖 自动更新规则 $(TZ='Asia/Shanghai' date '+%Y-%m-%d %H:%M:%S')"
+            git push
+          fi
