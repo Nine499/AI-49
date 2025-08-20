@@ -13,9 +13,11 @@ jobs:
         uses: actions/checkout@main
       - name: 创建目录
         run: |
+          echo 创建目录
           mkdir -p mihomo/tmp
       - name: 下载规则
         run: |
+          echo 下载规则
           curl -fsSL -o mihomo/tmp/cnipv4.txt https://ruleset.skk.moe/Clash/ip/china_ip.txt
           curl -fsSL -o mihomo/tmp/cnipv6.txt https://ruleset.skk.moe/Clash/ip/china_ip_ipv6.txt
           curl -fsSL -o mihomo/tmp/tgip.txt https://core.telegram.org/resources/cidr.txt
@@ -25,6 +27,7 @@ jobs:
           curl -fsSL -o mihomo/tmp/ai.txt https://ruleset.skk.moe/Clash/non_ip/ai.txt
       - name: 处理规则
         run: |
+          echo 处理规则
           # 处理 mihomo/tmp/cnipv4.txt 和 mihomo/tmp/cnipv6.txt
           # 要求：删除包含#的行，删除空行，在每行开头添加IP-CIDR,，合并到 mihomo/cn.txt
           cat mihomo/tmp/cnipv4.txt mihomo/tmp/cnipv6.txt | grep -v '#' | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/cn.txt
@@ -46,6 +49,7 @@ jobs:
           echo "所有文件处理完成。"
       - name: 提交并推送更新
         run: |
+          echo 提交并推送更新
           git config --local user.email "deceit-bucket-shy@duck.com"
           git config --local user.name "Nine_Action_bot"
           find mihomo -maxdepth 1 -name "*.txt" -exec git add {} +
