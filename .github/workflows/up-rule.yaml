@@ -22,6 +22,7 @@ jobs:
           curl -fsSL -o mihomo/tmp/AWAvenue.txt https://github.com/TG-Twilight/AWAvenue-Ads-Rule/raw/refs/heads/main/Filters/AWAvenue-Ads-Rule-Clash-Classical.yaml
           curl -fsSL -o mihomo/tmp/cdn.txt https://ruleset.skk.moe/Clash/domainset/cdn.txt
           curl -fsSL -o mihomo/tmp/cdn2.txt https://ruleset.skk.moe/Clash/non_ip/cdn.txt
+          curl -fsSL -o mihomo/tmp/ai.txt https://ruleset.skk.moe/Clash/non_ip/ai.txt
       - name: 处理规则
         run: |
           # 处理 mihomo/tmp/cnipv4.txt 和 mihomo/tmp/cnipv6.txt
@@ -39,6 +40,9 @@ jobs:
           # 处理 mihomo/tmp/cdn2.txt
           # 要求：删除包含#的行，删除空行，输出为 mihomo/cdn2.txt
           grep -v '#' mihomo/tmp/cdn2.txt | grep -v '^$' > mihomo/cdn2.txt
+          # 处理 mihomo/tmp/ai.txt
+          # 要求：删除包含#的行，删除空行，输出为 mihomo/ai.txt
+          grep -v '#' mihomo/tmp/ai.txt | grep -v '^$' > mihomo/ai.txt
           echo "所有文件处理完成。"
       - name: 提交并推送更新
         run: |
