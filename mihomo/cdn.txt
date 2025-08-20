@@ -1009,6 +1009,7 @@ DOMAIN-SUFFIX,mcusercontent.com
 DOMAIN-SUFFIX,asset.mansionglobal.com
 DOMAIN-SUFFIX,livemediahost.com
 DOMAIN-SUFFIX,pbs-prod.linustechtips.com
+DOMAIN-SUFFIX,cwsimages.ingramcontent.com
 DOMAIN-SUFFIX,highwinds-cdn.com
 DOMAIN-SUFFIX,cdn.heapanalytics.com
 DOMAIN-SUFFIX,sig.grumpybumpers.com
@@ -3528,6 +3529,7 @@ DOMAIN-SUFFIX,cdn2.stamped.io
 DOMAIN-SUFFIX,cdn1.stamped.io
 DOMAIN-SUFFIX,shields.io
 DOMAIN-SUFFIX,images.scalero.io
+DOMAIN-SUFFIX,js.prosopo.io
 DOMAIN-SUFFIX,images.prismic.io
 DOMAIN-SUFFIX,cdn.prismic.io
 DOMAIN-SUFFIX,cdn.pagefly.io
