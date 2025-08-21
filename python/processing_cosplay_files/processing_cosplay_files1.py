@@ -57,24 +57,37 @@ def extract_and_delete_archives(directory):
                     # "x" 表示解压并保持完整路径
                     # "-o" + root 表示解压到当前目录
                     # "-y" 表示对所有询问回答"是"
+                    # 使用字符串格式确保路径正确处理
                     subprocess.run(
-                        [seven_zip_path, "x", file_path, "-o" + root, "-y"],
+                        [seven_zip_path, "x", file_path, f"-o{root}", "-y"],
                         check=True,
                         capture_output=True,
                         text=True,
+                        encoding="utf-8",
+                        errors="ignore",  # 忽略编码错误
                     )
                     print(f"成功解压 {file_path}")
 
-                    # 删除原压缩文件
-                    os.remove(file_path)
-                    print(f"已删除原压缩文件 {file_path}")
+                    # 删除原压缩文件，使用更安全的方法
+                    try:
+                        os.remove(file_path)
+                        print(f"已删除原压缩文件 {file_path}")
+                    except PermissionError:
+                        # 如果直接删除失败，尝试先清除只读属性
+                        os.chmod(file_path, 0o777)
+                        os.remove(file_path)
+                        print(f"已删除原压缩文件 {file_path}")
+                    except Exception as e:
+                        print(f"删除 {file_path} 时出错: {e}")
 
                 except subprocess.CalledProcessError as e:
                     print(f"解压 {file_path} 时出错: {e}")
                     if e.stderr:
                         print(f"错误详情: {e.stderr}")
+                except PermissionError:
+                    print(f"权限不足，无法处理 {file_path}")
                 except OSError as e:
-                    print(f"删除 {file_path} 时出错: {e}")
+                    print(f"操作系统错误，处理 {file_path} 时出错: {e}")
                 except Exception as e:
                     print(f"处理 {file_path} 时发生未知错误: {e}")
 
@@ -100,8 +113,17 @@ def delete_specific_files(directory):
             # 检查文件是否为.webp或.gif文件
             if file.endswith((".webp", ".gif")):
                 try:
-                    os.remove(file_path)
-                    print(f"已删除 {file_path}")
+                    # 使用更安全的方法删除文件
+                    try:
+                        os.remove(file_path)
+                        print(f"已删除 {file_path}")
+                    except PermissionError:
+                        # 如果直接删除失败，尝试先清除只读属性
+                        os.chmod(file_path, 0o777)
+                        os.remove(file_path)
+                        print(f"已删除 {file_path}")
+                    except Exception as e:
+                        print(f"删除 {file_path} 时出错: {e}")
                 except OSError as e:
                     print(f"删除 {file_path} 时出错: {e}")
                 except Exception as e:

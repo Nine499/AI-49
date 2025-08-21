@@ -41,8 +41,17 @@ def delete_non_webp_files(directory):
             # 检查文件是否不是.webp文件
             if not file.endswith(".webp"):
                 try:
-                    os.remove(file_path)
-                    print(f"已删除 {file_path}")
+                    # 使用更安全的方法删除文件
+                    try:
+                        os.remove(file_path)
+                        print(f"已删除 {file_path}")
+                    except PermissionError:
+                        # 如果直接删除失败，尝试先清除只读属性
+                        os.chmod(file_path, 0o777)
+                        os.remove(file_path)
+                        print(f"已删除 {file_path}")
+                    except Exception as e:
+                        print(f"删除 {file_path} 时出错: {e}")
                 except OSError as e:
                     print(f"删除 {file_path} 时出错: {e}")
                 except Exception as e:
@@ -74,10 +83,21 @@ def remove_empty_folders(directory):
             # 如果列表为空，则该目录为空目录
             try:
                 if not os.listdir(folder_path):
-                    os.rmdir(folder_path)
-                    print(f"已删除空文件夹 {folder_path}")
+                    # 使用更安全的方法删除空文件夹
+                    try:
+                        os.rmdir(folder_path)
+                        print(f"已删除空文件夹 {folder_path}")
+                    except PermissionError:
+                        # 如果直接删除失败，尝试先清除只读属性
+                        os.chmod(folder_path, 0o777)
+                        os.rmdir(folder_path)
+                        print(f"已删除空文件夹 {folder_path}")
+                    except Exception as e:
+                        print(f"删除空文件夹 {folder_path} 时出错: {e}")
+            except PermissionError:
+                print(f"权限不足，无法检查文件夹 {folder_path}")
             except OSError as e:
-                print(f"删除空文件夹 {folder_path} 时出错: {e}")
+                print(f"检查空文件夹 {folder_path} 时出错: {e}")
             except Exception as e:
                 print(f"处理空文件夹 {folder_path} 时发生未知错误: {e}")
 
@@ -122,6 +142,8 @@ def compress_subfolders(directory):
                     check=True,
                     capture_output=True,
                     text=True,
+                    encoding="utf-8",
+                    errors="ignore",  # 忽略编码错误
                 )
                 print(f"成功压缩 {item_path} 到 {output_archive_path}")
             except subprocess.CalledProcessError as e:
