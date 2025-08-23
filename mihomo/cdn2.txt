@@ -48,6 +48,7 @@ DOMAIN-WILDCARD,proxy-*.dailymotion.com
 DOMAIN-WILDCARD,ocsp.*.amazontrust.com
 DOMAIN-WILDCARD,cdn?.18girlssex.com
 DOMAIN-WILDCARD,s3.*.wasabisys.com
+DOMAIN-WILDCARD,cdn-*.microsoft.com
 DOMAIN-WILDCARD,cdn.*.microsoft.com
 DOMAIN-WILDCARD,assets*.freshdesk.com
 DOMAIN-WILDCARD,*.img.*.sendibm?.com
