@@ -146,6 +146,7 @@ DOMAIN-SUFFIX,domain.expiring-soon.xyz
 DOMAIN-SUFFIX,mirror-media.xyz
 DOMAIN-SUFFIX,packd.liuxingbaoyu.xyz
 DOMAIN-SUFFIX,eslint-react.xyz
+DOMAIN-SUFFIX,beta.eslint-react.xyz
 DOMAIN-SUFFIX,storage.withfabric.xyz
 DOMAIN-SUFFIX,qiniuyun22.xyz
 DOMAIN-SUFFIX,cdn.yinghuazy.xyz
@@ -286,6 +287,8 @@ DOMAIN-SUFFIX,cdn.cookielaw.org
 DOMAIN-SUFFIX,moderate.cleantalk.org
 DOMAIN-SUFFIX,angularjs.org
 DOMAIN-SUFFIX,images.videolan.org
+DOMAIN-SUFFIX,static.tvtropes.org
+DOMAIN-SUFFIX,assets.tvtropes.org
 DOMAIN-SUFFIX,static.tronscan.org
 DOMAIN-SUFFIX,cdn.tronscan.org
 DOMAIN-SUFFIX,static.spigotmc.org

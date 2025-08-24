@@ -75,3 +75,4 @@ DOMAIN-WILDCARD,static??.tgstat.ru
 DOMAIN-WILDCARD,static?.tgstat.ru
 DOMAIN-WILDCARD,cdn-msp?.jmcomic.me
 DOMAIN-WILDCARD,sdk.*.braze.eu
+DOMAIN-WILDCARD,assets.*.imaga.co
