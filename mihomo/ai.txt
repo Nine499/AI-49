@@ -1,4 +1,4 @@
-DOMAIN,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+# 本文件共有 38 行
 DOMAIN-SUFFIX,generativeai.google
 DOMAIN-SUFFIX,notebooklm.google
 DOMAIN-SUFFIX,deepmind.google

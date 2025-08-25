@@ -1,4 +1,4 @@
-DOMAIN,1500020991.vodplayer.wxamedia.com
+# 本文件共有 860 行
 DOMAIN,1500022744.vodplayer.wxamedia.com
 DOMAIN,1500026601.vodplayer.wxamedia.com
 DOMAIN,8le8le.com

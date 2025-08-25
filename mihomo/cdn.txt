@@ -1,4 +1,4 @@
-DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
+# 本文件共有 3841 行
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
 DOMAIN-SUFFIX,media.infosec.exchange
