@@ -1,4 +1,4 @@
-# 本文件共有 3841 行
+# 本文件共有 3844 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -254,6 +254,9 @@ DOMAIN-SUFFIX,play.publicradio.org
 DOMAIN-SUFFIX,tiles.openfreemap.org
 DOMAIN-SUFFIX,media.hentaifreak.org
 DOMAIN-SUFFIX,ipfs.genenetwork.org
+DOMAIN-SUFFIX,ximage.c-spanvideo.org
+DOMAIN-SUFFIX,static.c-spanvideo.org
+DOMAIN-SUFFIX,m3u8-0.c-spanvideo.org
 DOMAIN-SUFFIX,app.backinstock.org
 DOMAIN-SUFFIX,easylist-downloads.adblockplus.org
 DOMAIN-SUFFIX,tiles.versatiles.org
