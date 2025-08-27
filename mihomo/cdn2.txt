@@ -56,8 +56,8 @@ DOMAIN-WILDCARD,*.img.*.sendibm?.com
 DOMAIN-WILDCARD,cdn?-dl.pornhost.com
 DOMAIN-WILDCARD,th-*.pornone.com
 DOMAIN-WILDCARD,s???.pornone.com
-DOMAIN-WILDCARD,media??.kissjav.com
-DOMAIN-WILDCARD,media?.kissjav.com
+DOMAIN-WILDCARD,stream??.kissjav.com
+DOMAIN-WILDCARD,stream?.kissjav.com
 DOMAIN-WILDCARD,uploads-*.insided.com
 DOMAIN-WILDCARD,img??.porngo.com
 DOMAIN-WILDCARD,img?.porngo.com
