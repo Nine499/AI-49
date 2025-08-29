@@ -1,4 +1,4 @@
-# 本文件共有 860 行
+# 本文件共有 859 行
 DOMAIN,1500020991.vodplayer.wxamedia.com
 DOMAIN,1500022744.vodplayer.wxamedia.com
 DOMAIN,1500026601.vodplayer.wxamedia.com
@@ -170,7 +170,6 @@ DOMAIN,analytics.tiktok.com
 DOMAIN,analytics.woozooo.com
 DOMAIN,analyticsengine.s3.amazonaws.com
 DOMAIN,analyze.lemurbrowser.com
-DOMAIN,android.bugly.qq.com
 DOMAIN,andrqd.play.aiseet.atianqi.com
 DOMAIN,ap.dongdianqiu.com
 DOMAIN,ap.dongqiudi.com
