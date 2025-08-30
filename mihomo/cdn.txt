@@ -1,4 +1,4 @@
-# 本文件共有 3820 行
+# 本文件共有 3823 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -85,6 +85,7 @@ DOMAIN-SUFFIX,js.txxx.tube
 DOMAIN-SUFFIX,ipfs.d.tube
 DOMAIN-SUFFIX,packages.jetbrains.team
 DOMAIN-SUFFIX,pkg-cdn.jetbrains.team
+DOMAIN-SUFFIX,zenwave56.site
 DOMAIN-SUFFIX,res2.weblium.site
 DOMAIN-SUFFIX,nextra.site
 DOMAIN-SUFFIX,p.inari.site
@@ -2850,6 +2851,7 @@ DOMAIN-SUFFIX,cdn.ko-fi.com
 DOMAIN-SUFFIX,js.klarn.com
 DOMAIN-SUFFIX,static.jsbin.com
 DOMAIN-SUFFIX,null.jsbin.com
+DOMAIN-SUFFIX,icdn.javxx.com
 DOMAIN-SUFFIX,cdn.javmg.com
 DOMAIN-SUFFIX,creator-image.javhd.com
 DOMAIN-SUFFIX,static.javhd.com
@@ -3341,6 +3343,7 @@ DOMAIN-SUFFIX,disconnect.me
 DOMAIN-SUFFIX,api.crashguard.me
 DOMAIN-SUFFIX,rocketcdn.me
 DOMAIN-SUFFIX,javplayer.me
+DOMAIN-SUFFIX,cdn.daradara.me
 DOMAIN-SUFFIX,cf.javfree.me
 DOMAIN-SUFFIX,cdn.picrew.me
 DOMAIN-SUFFIX,cdn.glitch.me
