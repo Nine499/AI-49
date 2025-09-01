@@ -1,62 +1,22 @@
-# Python项目的配置文件，使用TOML格式定义项目信息和依赖关系
-
-# [project] 区块定义了项目的基本信息
 [project]
-# 项目名称
 name = "ai-49"
-
-# 项目版本号，格式为 YYYY.MM.DD.HHMMSS
-version = "2025.08.21.185119"
-
-# 项目描述信息
+version = "2025.09.02.064330"
 description = "ai完成了一切"
-
-# 项目的README文件路径
 readme = "README.md"
-
-# 项目需要的Python版本，要求不低于3.11版本
 requires-python = ">=3.11"
-
-# 项目依赖的第三方库列表
-# cloudscraper: 用于绕过Cloudflare等网站防护机制的HTTP库
-# pyperclip: 用于跨平台操作剪贴板的库
-# requests: 用于发送HTTP请求的流行Python库
-# toml: 用于解析和生成TOML格式文件的库
 dependencies = [ "cloudscraper>=1.2.71", "pyperclip>=1.9.0", "requests>=2.32.4", "toml>=0.10.2",]
 
-# [project.scripts] 区块定义了项目的命令行脚本入口点
-# 这些脚本可以直接在命令行中运行，例如执行 "news60" 命令
 [project.scripts]
-
-# 新闻摘要工具，指向 news_60s 模块中的 main 函数
 news60 = "news_60s.news_60s:main"
-
-# IP地址连通性测试工具，指向 saoip 模块中的 main 函数
 saoip = "saoip.saoip:main"
-
-# UUID生成工具，指向 get_uuid 模块中的 generate_uuid 函数
 getuuid = "get_uuid.get_uuid:generate_uuid"
-
-# 轻小说下载工具，指向 download_wenku8_novels 模块中的 download_file 函数
 dwenku8 = "download_wenku8_novels.download_wenku8_novels:download_file"
-
-# Cosplay文件处理工具1，指向 processing_cosplay_files1 模块中的 main 函数
 cosplay1 = "processing_cosplay_files.processing_cosplay_files1:main"
-
-# Cosplay文件处理工具2，指向 processing_cosplay_files2 模块中的 main 函数
 cosplay2 = "processing_cosplay_files.processing_cosplay_files2:main"
-
-# HTML实体转换工具，指向 convert_html_entities_in_file 模块中的 main 函数
 htmlentities = "convert_html_entities_in_file.convert_html_entities_in_file:main"
 
-# [tool.uv.build-backend] 区块定义了构建后端的配置
 [tool.uv.build-backend]
-
-# 指定模块的根目录为python文件夹
 module-root = "python"
 
-# [tool.setuptools.packages.find] 区块定义了setuptools查找Python包的路径
 [tool.setuptools.packages.find]
-
-# 在python目录下查找Python包
 where = [ "python",]
