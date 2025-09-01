@@ -138,12 +138,20 @@ URL 路径结构遵循 GitHub 原始文件 URL 的格式：
 - 环境变量未正确配置
 - GitHub Personal Access Token 权限不足或已过期
 
+### 访问返回错误信息而不是文件内容
+
+如果提供了正确的 `nine-token` 但返回 GitHub 错误信息，可能是：
+
+- URL 路径不正确
+- 目标文件不存在
+- GitHub Personal Access Token 权限不足
+- 目标仓库不是私有仓库但尝试以私有仓库方式访问
+
 ### 访问被重定向到 GitHub 首页
 
 如果提供了正确的 `nine-token` 但被重定向到 GitHub 首页，可能是：
 
-- URL 路径不正确或缺失
-- 路径参数未正确传递给 API 函数
+- URL 路径缺失（只访问了根路径）
 
 ### GitHub API 限制
 

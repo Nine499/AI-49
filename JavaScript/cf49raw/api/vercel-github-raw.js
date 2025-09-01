@@ -11,8 +11,8 @@ export default async function handler(request, response) {
     const expectedToken = process.env.NINE49TOKEN;
 
     // 验证token是否匹配环境变量
-    if (userToken !== expectedToken) {
-      // token不匹配时重定向到百度
+    if (!userToken || userToken !== expectedToken) {
+      // token不匹配或缺失时重定向到百度
       response.status(302).redirect("https://www.baidu.com");
       return;
     }
@@ -37,7 +37,12 @@ export default async function handler(request, response) {
 
     // 检查响应状态码是否为成功状态
     if (!githubResponse.ok) {
-      throw new Error(`GitHub请求失败: ${githubResponse.status}`);
+      // 如果GitHub返回错误，记录错误但不重定向到百度
+      console.error(`GitHub请求失败: ${githubResponse.status} ${githubRawUrl}`);
+      response
+        .status(githubResponse.status)
+        .send(`GitHub请求失败: ${githubResponse.status}`);
+      return;
     }
 
     // 获取GitHub响应的内容和内容类型
@@ -51,7 +56,8 @@ export default async function handler(request, response) {
     );
     response.status(200).send(Buffer.from(content));
   } catch (error) {
-    // 捕获所有异常并重定向到百度
-    response.status(302).redirect("https://www.baidu.com");
+    // 捕获所有异常并返回错误信息而不是重定向到百度
+    console.error("处理请求时发生错误:", error);
+    response.status(500).send("内部服务器错误");
   }
 }
