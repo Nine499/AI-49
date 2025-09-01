@@ -2,7 +2,14 @@
 export default async function handler(request, response) {
   try {
     // 从请求参数中获取路径
-    const path = request.query.path ? `/${request.query.path.join("/")}` : "/";
+    let path = "/";
+    if (request.query.path) {
+      if (Array.isArray(request.query.path)) {
+        path = "/" + request.query.path.join("/");
+      } else {
+        path = "/" + request.query.path;
+      }
+    }
 
     // 从查询参数中获取用户提供的token
     const userToken = request.query["nine-token"];
@@ -56,8 +63,8 @@ export default async function handler(request, response) {
     );
     response.status(200).send(Buffer.from(content));
   } catch (error) {
-    // 捕获所有异常并返回错误信息而不是重定向到百度
+    // 捕获所有异常并返回详细的错误信息而不是简单的内部服务器错误
     console.error("处理请求时发生错误:", error);
-    response.status(500).send("内部服务器错误");
+    response.status(500).send("内部服务器错误: " + error.message);
   }
 }
