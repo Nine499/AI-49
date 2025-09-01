@@ -1,4 +1,4 @@
-# 本文件共有 3823 行
+# 本文件共有 3824 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -1184,6 +1184,7 @@ DOMAIN-SUFFIX,app.viral-loops.com
 DOMAIN-SUFFIX,static-cdn.usertesting.com
 DOMAIN-SUFFIX,js.usemessages.com
 DOMAIN-SUFFIX,asset-cdn.uscardforum.com
+DOMAIN-SUFFIX,www-cdn.uscardforum.com
 DOMAIN-SUFFIX,psp-logos.uptimerobot.com
 DOMAIN-SUFFIX,uploadhouse.com
 DOMAIN-SUFFIX,tag.unifyintent.com
