@@ -16,6 +16,12 @@ export default {
         return Response.redirect("https://www.baidu.com", 302);
       }
 
+      // 检查路径是否为空或根路径
+      if (path === "/" || path === "") {
+        // 如果没有指定路径，重定向到百度
+        return Response.redirect("https://www.baidu.com", 302);
+      }
+
       // 构造GitHub原始文件地址
       const githubRawUrl = `https://raw.githubusercontent.com${path}`;
 
@@ -29,7 +35,8 @@ export default {
 
       // 检查响应状态码是否为成功状态
       if (!response.ok) {
-        throw new Error(`GitHub请求失败: ${response.status}`);
+        // GitHub返回错误时重定向到百度
+        return Response.redirect("https://www.baidu.com", 302);
       }
 
       // 直接返回GitHub的响应内容

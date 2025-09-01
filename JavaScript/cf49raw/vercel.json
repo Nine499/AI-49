@@ -8,5 +8,8 @@
       "src": "/",
       "dest": "/api/vercel-github-raw.js"
     }
-  ]
+  ],
+  "github": {
+    "silent": true
+  }
 }
