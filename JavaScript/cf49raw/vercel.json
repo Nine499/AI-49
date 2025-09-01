@@ -1,8 +1,12 @@
 {
   "routes": [
     {
-      "src": "/.*",
-      "dest": "/api/vercel-github-raw.js"
+      "src": "/([^/]*)/(.*)",
+      "dest": "/api/vercel-github-raw.js?path=$1/$2"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/vercel-github-raw.js?path=$1"
     }
   ]
 }

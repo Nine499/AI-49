@@ -17,6 +17,13 @@ export default async function handler(request, response) {
       return;
     }
 
+    // 检查路径是否为空或根路径
+    if (path === "/" || path === "") {
+      // 如果没有指定路径，重定向到GitHub首页
+      response.status(302).redirect("https://github.com");
+      return;
+    }
+
     // 构造GitHub原始文件地址
     const githubRawUrl = `https://raw.githubusercontent.com${path}`;
 
