@@ -1,4 +1,4 @@
-# 本文件共有 3827 行
+# 本文件共有 3829 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -557,7 +557,7 @@ DOMAIN-SUFFIX,pub.creaders.net
 DOMAIN-SUFFIX,assets.bitstamp.net
 DOMAIN-SUFFIX,cdn.beacondb.net
 DOMAIN-SUFFIX,damassets.autodesk.net
-DOMAIN-SUFFIX,jira-frontend-bifrost.prod-east.frontend.public.atl-paas.net
+DOMAIN-SUFFIX,prod-east.frontend.public.atl-paas.net
 DOMAIN-SUFFIX,prod.public.atl-paas.net
 DOMAIN-SUFFIX,steamusercontent-a.akamaihd.net
 DOMAIN-SUFFIX,steamuserimages-a.akamaihd.net
@@ -2649,6 +2649,7 @@ DOMAIN-SUFFIX,glyph.medium.com
 DOMAIN-SUFFIX,miro.medium.com
 DOMAIN-SUFFIX,twemoji.maxcdn.com
 DOMAIN-SUFFIX,static-assets.mapbox.com
+DOMAIN-SUFFIX,tiles.mapbox.com
 DOMAIN-SUFFIX,sato.manyse.com
 DOMAIN-SUFFIX,cdn2-imgix.macpaw.com
 DOMAIN-SUFFIX,api-lytics.macpaw.com
@@ -2779,6 +2780,7 @@ DOMAIN-SUFFIX,ytimg.com
 DOMAIN-SUFFIX,cdn-yotpo-images-production.yotpo.com
 DOMAIN-SUFFIX,cdn-widgetsrepository.yotpo.com
 DOMAIN-SUFFIX,cdn-swell-assets.yotpo.com
+DOMAIN-SUFFIX,cdn-loyalty.yotpo.com
 DOMAIN-SUFFIX,staticw2.yotpo.com
 DOMAIN-SUFFIX,yep.video.yahoo.com
 DOMAIN-SUFFIX,xhcdn.com
