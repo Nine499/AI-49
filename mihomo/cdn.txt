@@ -1,4 +1,4 @@
-# 本文件共有 3824 行
+# 本文件共有 3827 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -1244,6 +1244,7 @@ DOMAIN-SUFFIX,api.producthunt.com
 DOMAIN-SUFFIX,s3.producthunt.com
 DOMAIN-SUFFIX,cdn.pricespider.com
 DOMAIN-SUFFIX,pplusstatic.com
+DOMAIN-SUFFIX,public-assets.postmarkapp.com
 DOMAIN-SUFFIX,newsletter.postmarkapp.com
 DOMAIN-SUFFIX,rebound.postmarkapp.com
 DOMAIN-SUFFIX,porndudecdn.com
@@ -2416,6 +2417,7 @@ DOMAIN-SUFFIX,static.doujins.com
 DOMAIN-SUFFIX,cdn.docsbot.com
 DOMAIN-SUFFIX,global.divhunt.com
 DOMAIN-SUFFIX,s1.divhunt.com
+DOMAIN-SUFFIX,cdn.devdojo.com
 DOMAIN-SUFFIX,denopkg.com
 DOMAIN-SUFFIX,dellcdn.com
 DOMAIN-SUFFIX,import-cdn.default.com
@@ -3712,6 +3714,7 @@ DOMAIN-SUFFIX,placehold.co
 DOMAIN-SUFFIX,before.good-apps.co
 DOMAIN-SUFFIX,static.convertio.co
 DOMAIN-SUFFIX,ipfs.tribecap.co
+DOMAIN-SUFFIX,supabase.co
 DOMAIN-SUFFIX,smilecdn.co
 DOMAIN-SUFFIX,ipfs.sloppyta.co
 DOMAIN-SUFFIX,assets.jolipage.co
