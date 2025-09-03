@@ -1,4 +1,4 @@
-# 本文件共有 3829 行
+# 本文件共有 3831 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -1839,8 +1839,10 @@ DOMAIN-SUFFIX,upos-sz-mirroralibstar1.bilivideo.com
 DOMAIN-SUFFIX,secure.beer7live.com
 DOMAIN-SUFFIX,cdn.babylonjs.com
 DOMAIN-SUFFIX,awsstatic.com
+DOMAIN-SUFFIX,atl-global.atlassian.com
 DOMAIN-SUFFIX,media-cdn.atlassian.com
 DOMAIN-SUFFIX,wac-cdn.atlassian.com
+DOMAIN-SUFFIX,api.media.atlassian.com
 DOMAIN-SUFFIX,assettype.com
 DOMAIN-SUFFIX,aspnetcdn.com
 DOMAIN-SUFFIX,appmifile.com
