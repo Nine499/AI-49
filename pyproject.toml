@@ -20,3 +20,6 @@ module-root = "python"
 
 [tool.setuptools.packages.find]
 where = [ "python",]
+
+[tool.uv]
+package = true
