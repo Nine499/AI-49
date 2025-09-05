@@ -1,4 +1,4 @@
-# 本文件共有 3840 行
+# 本文件共有 3841 行
 DOMAIN-SUFFIX,7h1s_rul35et_i5_mad3_by_5ukk4w-ruleset.skk.moe
 DOMAIN-SUFFIX,static.microsoft
 DOMAIN-SUFFIX,cdn.arcade.software
@@ -1937,6 +1937,7 @@ DOMAIN-SUFFIX,roseimgs.com
 DOMAIN-SUFFIX,cdn.roboflow.com
 DOMAIN-SUFFIX,app.roboflow.com
 DOMAIN-SUFFIX,api.roboflow.com
+DOMAIN-SUFFIX,staticsource1.redotpay.com
 DOMAIN-SUFFIX,redircdn.com
 DOMAIN-SUFFIX,radix-ui.com
 DOMAIN-SUFFIX,quriobot.com
