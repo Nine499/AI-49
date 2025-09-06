@@ -28,8 +28,6 @@ jobs:
       - name: 处理规则
         run: |
           echo 处理规则
-          # 先删除所有旧文件
-          find mihomo -maxdepth 1 -name "*.txt" -exec rm -f {} +
           # 处理 mihomo/tmp/cnipv4.txt 和 mihomo/tmp/cnipv6.txt
           # 要求：删除包含#的行，删除空行，在每行开头添加IP-CIDR,，合并到 mihomo/cn.txt
           cat mihomo/tmp/cnipv4.txt mihomo/tmp/cnipv6.txt | grep -v '#' | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/cn.txt
