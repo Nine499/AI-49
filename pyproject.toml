@@ -1,0 +1,25 @@
+[project]
+name = "ai-49"
+version = "2025.09.03.210617"
+description = "ai完成了一切"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [ "cloudscraper>=1.2.71", "pyperclip>=1.9.0", "requests>=2.32.4", "toml>=0.10.2",]
+
+[project.scripts]
+news60 = "news_60s.news_60s:main"
+saoip = "saoip.saoip:main"
+getuuid = "get_uuid.get_uuid:generate_uuid"
+dwenku8 = "download_wenku8_novels.download_wenku8_novels:download_file"
+cosplay1 = "processing_cosplay_files.processing_cosplay_files1:main"
+cosplay2 = "processing_cosplay_files.processing_cosplay_files2:main"
+htmlentities = "convert_html_entities_in_file.convert_html_entities_in_file:main"
+
+[tool.uv.build-backend]
+module-root = "python"
+
+[tool.setuptools.packages.find]
+where = [ "python",]
+
+[tool.uv]
+package = true

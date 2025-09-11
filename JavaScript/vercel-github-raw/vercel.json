@@ -1,0 +1,15 @@
+{
+  "routes": [
+    {
+      "src": "/(.+)",
+      "dest": "/api/vercel-github-raw.js?path=$1"
+    },
+    {
+      "src": "/",
+      "dest": "/api/vercel-github-raw.js"
+    }
+  ],
+  "github": {
+    "silent": true
+  }
+}
