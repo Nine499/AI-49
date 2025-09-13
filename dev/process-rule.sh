@@ -9,11 +9,11 @@ grep -v '#' mihomo/tmp/tgip.txt | grep -v '^$' | sed 's/^/IP-CIDR,/' > mihomo/tg
 # 要求：删除包含#的行，删除包含payload的行，删除空行，将`  - DOMAIN`替换为`DOMAIN`，输出为 mihomo/AWAvenue.txt
 grep -v '#' mihomo/tmp/AWAvenue.txt | grep -v 'payload' | grep -v '^$' | sed 's/  - DOMAIN/DOMAIN/' > mihomo/AWAvenue.txt
 # 处理 mihomo/tmp/cdn.txt
-# 要求：删除包含#的行，如果开头有+.则删除+.，删除空行，在每行开头添加DOMAIN-SUFFIX,，输出为 mihomo/cdn.txt
-grep -v '#' mihomo/tmp/cdn.txt | sed 's/^+\.*//' | grep -v '^$' | sed 's/^/DOMAIN-SUFFIX,/' > mihomo/cdn.txt
+# 要求：删除包含#的行，如果开头有+.则删除+.，删除空行，在每行开头添加DOMAIN-SUFFIX
 # 处理 mihomo/tmp/cdn2.txt
-# 要求：删除包含#的行，删除空行，输出为 mihomo/cdn2.txt
-grep -v '#' mihomo/tmp/cdn2.txt | grep -v '^$' > mihomo/cdn2.txt
+# 要求：删除包含#的行，删除空行
+# 输出为 mihomo/cdn.txt
+grep -v '^#' mihomo/tmp/cdn.txt | sed 's/^+\.*//' | awk 'NF' | sed 's/^/DOMAIN-SUFFIX,/' > mihomo/cdn.txt && grep -v '^#' mihomo/tmp/cdn2.txt | awk 'NF' >> mihomo/cdn.txt
 # 处理 mihomo/tmp/ai.txt
 # 要求：删除包含#的行，删除空行，输出为 mihomo/ai.txt
 grep -v '#' mihomo/tmp/ai.txt | grep -v '^$' > mihomo/ai.txt
